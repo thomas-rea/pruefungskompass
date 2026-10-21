@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#12283e">
+<meta name="description" content="Prüfungsrechner für sieben IHK-Ausbildungsberufe. Gesetzliche Gewichtungs- und Bestehensregeln mit Quellen, Schiebereglern und mündlicher Ergänzungsprüfung.">
+<title>Prüfungskompass · Interaktive IHK-Prüfungsrechner</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="top-inner"><div class="brand"><span class="brand-icon">∑</span><div><strong>PRÜFUNGSKOMPASS</strong><span>IHK-Abschlussprüfung · Ausbildungsberufe</span></div></div><span class="edition">Stand: 21.10.2026</span></div>
+</header>
+<div class="sticky-bar neutral" id="stickyBar" role="status" aria-live="polite"><div class="sticky-inner"><span class="sticky-icon" aria-hidden="true">●</span><span id="stickyState">Noch keine vollständige Berechnung</span><strong id="stickyPoints">Eingaben fehlen</strong></div></div>
+<div class="app-layout">
+  <aside class="sidebar"><div class="menu-caption">AUSBILDUNGSBERUFE</div><nav id="jobMenu" class="job-menu" aria-label="Beruf auswählen"></nav><div class="sidebar-note"><strong>Quellenbasierte Berechnung</strong><p>Die Gewichtungen und Bestehensregeln stammen aus den geltenden Ausbildungsordnungen. Die jeweiligen Rechtsgrundlagen sind beim Beruf verlinkt.</p></div></aside>
+  <main id="mainContent">
+    <div class="small-select"><label for="mobileSelect">Ausbildungsberuf auswählen</label><select id="mobileSelect"></select></div>
+    <section class="hero"><div class="hero-eyebrow">INTERAKTIVER PRÜFUNGSRECHNER</div><div class="hero-heading"><div><h1 id="jobTitle">Prüfungsrechner</h1><p id="jobSubtitle">Abschlussprüfung simulieren und Bestehensbedingungen prüfen</p></div><span class="hero-code" id="jobBadge">IHK</span></div><div class="hero-bottom"><span>Berechnung nach offizieller Ausbildungsordnung</span><span id="jobContext">Teil 1 und Teil 2</span></div></section>
+    <div class="warning-banner"><span aria-hidden="true">ⓘ</span><p><strong>Unverbindliche Simulation:</strong> Grundlage sind die im Oktober 2026 überprüften Ausbildungsordnungen. IHK-Punkteschlüssel, Zwischenrundungen und Einzelfallentscheidungen können abweichen. Die verbindliche Bestehensentscheidung trifft der Prüfungsausschuss.</p></div>
+    <div class="main-grid">
+      <section class="form-column">
+        <div class="section-card">
+          <div class="section-top"><div><div class="section-eyebrow">01 · ERGEBNISSE</div><h2>Punkte eingeben</h2><p>Werte von 0 bis 100 Punkten. Nutze den Regler oder tippe die Punktzahl ein.</p></div></div>
+          <div class="advanced-box" id="advancedBox"><label class="advanced-label"><input type="checkbox" id="advancedToggle"><span><strong>Erweiterter Modus</strong><small id="advancedNote">Teilaufgaben getrennt eingeben</small></span></label></div>
+          <div id="scoreSections" class="score-sections"></div>
+          <div class="example-bar"><div><strong>Beispiele ausprobieren</strong><span>Setzt bisherige Eingaben zurück</span></div><div class="example-buttons"><button id="sampleTypical" class="button subtle" type="button">Beispiel: bestanden</button><button id="sampleFail" class="button subtle" type="button">Grenzfall</button><button id="resetButton" class="button plain" type="button">Alles löschen</button></div></div>
+        </div>
+        <section class="section-card oral-section" id="oralPanel" aria-label="Mündliche Ergänzungsprüfung"><h3>Mündliche Ergänzungsprüfung</h3><p>Werte eingeben, um Möglichkeiten der mündlichen Ergänzung zu prüfen.</p></section>
+        <section class="section-card sources"><div class="section-eyebrow">03 · PRÜFEN UND NACHLESEN</div><h2>Rechtsgrundlagen &amp; Quellen</h2><p class="source-intro">Die amtlichen Ausbildungsordnungen sind die Grundlage für die Bestehensbedingungen. PAL veröffentlicht ergänzende, prüfungsterminspezifische Hinweise. Prüfe bei älteren Ausbildungsverträgen oder Sonderfällen die anzuwendende Verordnungsfassung.</p><ul id="legislation"></ul><div class="source-note"><strong>Einordnung für diesen Beruf</strong><p id="profileInfo"></p><strong>Details zu Teilaufgaben</strong><p id="splitInfo"></p></div></section>
+      </section>
+      <section class="outcome-column" aria-label="Auswertung"><div class="section-card result-card neutral" id="resultPanel"><div class="section-eyebrow">02 · DEIN ERGEBNIS</div><h2 id="resultLabel">Noch keine vollständige Berechnung</h2><div class="big-result" id="resultScore">–</div><p id="resultDesc">Trage alle Prüfungsergebnisse ein.</p><div class="progress-info" id="progressInfo">Eingaben fehlen</div><h3 id="rulesHeader" class="rules-head">Bestehensbedingungen laut Verordnung</h3><div id="resultDetails"></div></div><div class="caveat"><strong>Warum das wichtig ist</strong><p>Nicht allein die Gesamtpunktzahl entscheidet. Manche Berufe verlangen zusätzlich mindestens ausreichende Ergebnisse in Praxis, schriftlichem Block oder bestimmten einzelnen Fächern.</p><p id="warningText"></p></div></section>
+    </div>
+    <footer><span>Prüfungskompass · Hilfsmittel zur Prüfungsvorbereitung, kein Angebot der IHK</span><span>Keine Anmeldung · keine Übermittlung der eingegebenen Punkte durch diese Anwendung</span><p>Hinweis zum Hosting: Der Webhoster kann technisch notwendige Verbindungsdaten verarbeiten. Für eine öffentliche Veröffentlichung sind Anbieterkennzeichnung und Datenschutzhinweise durch den Betreiber zu ergänzen.</p></footer>
+  </main>
+</div>
+</body>
+</html>
